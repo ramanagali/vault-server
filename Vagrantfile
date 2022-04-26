@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
           vb.memory = 4048
           vb.cpus = 2
       end
-      config.vm.provision "shell", path: "scripts/install-vault.sh.sh"
+      config.vm.provision "shell", path: "scripts/install-vault.sh"
       config.vm.network :forwarded_port, guest: 80, host: 4567, auto_correct: true
       config.vm.network :forwarded_port, guest: 8200, host: 8500, auto_correct: true
       config.vm.network :forwarded_port, guest: 8200, host: 8200, auto_correct: true
