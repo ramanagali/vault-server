@@ -2,10 +2,6 @@ IP_NW="192.168.10."
 IP_START=10
 
 Vagrant.configure("2") do |config|
-    # config.vm.provision "shell", inline: <<-SHELL
-    #     echo "$IP_NW$((IP_START))  vault-node" >> /etc/hosts
-    #     echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-    #     echo "nameserver 8.8.4.4" >> /etc/resolv.conf
     # SHELL
     # config.vm.box = "bento/ubuntu-21.10"
     config.vm.box = "davekpatrick/ubuntu-2204"
@@ -20,11 +16,10 @@ Vagrant.configure("2") do |config|
           vb.memory = 4048
           vb.cpus = 2
       end
-      config.vm.provision :shell, path: "common.sh"
-      config.vm.network :forwarded_port, guest: 80, host: 4567,
-      config.vm.network :forwarded_port, guest: 8200, host: 8200,
-      config.vm.network :forwarded_port, guest: 8201, host: 8201, 
-        auto_correct: true
+      config.vm.provision "shell", path: "scripts/vault.sh.sh"
+      config.vm.network :forwarded_port, guest: 80, host: 4567, auto_correct: true
+      config.vm.network :forwarded_port, guest: 8200, host: 8500, auto_correct: true
+      config.vm.network :forwarded_port, guest: 8200, host: 8200, auto_correct: true
+      config.vm.network :forwarded_port, guest: 8201, host: 8201, auto_correct: true
     end
-    
   end
