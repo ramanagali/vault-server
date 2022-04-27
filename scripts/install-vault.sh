@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-sudo apt-get update -y
-sudo apt install nginx -y
-sudo systemctl enable nginx
-sudo ufw allow 'Nginx HTTP'
-curl -4 icanhazip.com
-
-#!/usr/bin/env bash
-
 echo "starting..."
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" -y
