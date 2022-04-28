@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-sudo apt-get update -y
-sudo apt install nginx -y
-sudo systemctl enable nginx
-sudo ufw allow 'Nginx HTTP'
-curl -4 icanhazip.com
-
-#!/usr/bin/env bash
-
 echo "starting..."
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" -y
@@ -30,18 +22,18 @@ path = "/opt/vault/data"
 # path = "vault"
 #}
 
-# HTTP listener
-#listener "tcp" {
-# address = "127.0.0.1:8200"
-# tls_disable = 1
-#}
-
-# HTTPS listener
+#HTTP listener
 listener "tcp" {
 address = "0.0.0.0:8200"
-tls_cert_file = "/opt/vault/tls/tls.crt"
-tls_key_file = "/opt/vault/tls/tls.key"
+tls_disable = 1
 }
+
+# HTTPS listener
+# listener "tcp" {
+# address = "0.0.0.0:8200"
+# tls_cert_file = "/opt/vault/tls/tls.crt"
+# tls_key_file = "/opt/vault/tls/tls.key"
+# }
 
 # telemetry {
 #   statsite_address = "127.0.0.1:8125"

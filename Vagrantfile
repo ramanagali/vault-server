@@ -17,8 +17,7 @@ Vagrant.configure("2") do |config|
           vb.cpus = 2
       end
       config.vm.provision "shell", path: "scripts/install-vault.sh"
-      config.vm.network :forwarded_port, guest: 80, host: 4567, auto_correct: true
-      config.vm.network :forwarded_port, guest: 8200, host: 8500, auto_correct: true
+      config.vm.network :forwarded_port, guest: 8500, host: 8500, auto_correct: true
       config.vm.network :forwarded_port, guest: 8200, host: 8200, auto_correct: true
       config.vm.network :forwarded_port, guest: 8201, host: 8201, auto_correct: true
     end
