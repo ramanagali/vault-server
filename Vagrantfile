@@ -1,10 +1,10 @@
+VM_BOX="bento/ubuntu-22.04"
 IP_NW="192.168.10."
 IP_START=10
 
 Vagrant.configure("2") do |config|
     # SHELL
-    # config.vm.box = "bento/ubuntu-21.10"
-    config.vm.box = "davekpatrick/ubuntu-2204"
+    config.vm.box=VM_BOX
     config.vm.box_check_update = true
 
     config.vm.define "vault" do |master|

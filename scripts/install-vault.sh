@@ -48,4 +48,10 @@ sudo systemctl start vault
 sudo systemctl enable vault
 sudo systemctl status vault
 
+
+touch /var/log/vault_audit.log
+chmod 644 /var/log/vault_audit.log
+chown vault:vault /var/log/vault_audit.log
+apt install jq -y
+
 echo "vault up & running..."
