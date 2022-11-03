@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.define "vault" do |vault|
       vault.vm.hostname = "vault"
-      vault.vm.network "private_network", ip: IP_NW"
+      vault.vm.network "private_network", ip: IP_NW
       # config.vm.network "public_network", bridge: "en0: Wi-Fi"
       vault.vm.provider "virtualbox" do |vb|
           # vb.customizvae ["modifyvm", :id, "--natdnshostresolver1", "on"]
