@@ -1,17 +1,16 @@
 VM_BOX="bento/ubuntu-22.04"
-IP_NW="192.168.10."
-IP_START=10
+IP_NW="192.168.10.10"
 
 Vagrant.configure("2") do |config|
     # SHELL
     config.vm.box=VM_BOX
     config.vm.box_check_update = true
 
-    config.vm.define "vault" do |master|
-      master.vm.hostname = "vault"
-      # master.vm.network "private_network", ip: IP_NW + "#{IP_START}"
+    config.vm.define "vault" do |vault|
+      vault.vm.hostname = "vault"
+      vault.vm.network "private_network", ip: IP_NW"
       # config.vm.network "public_network", bridge: "en0: Wi-Fi"
-      master.vm.provider "virtualbox" do |vb|
+      vault.vm.provider "virtualbox" do |vb|
           # vb.customizvae ["modifyvm", :id, "--natdnshostresolver1", "on"]
           vb.memory = 4048
           vb.cpus = 2
