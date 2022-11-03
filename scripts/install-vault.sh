@@ -53,5 +53,6 @@ touch /var/log/vault_audit.log
 chmod 644 /var/log/vault_audit.log
 chown vault:vault /var/log/vault_audit.log
 apt install jq -y
+apt install net-tools
 
 echo "vault up & running..."
